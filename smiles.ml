@@ -466,7 +466,7 @@ type id_opts = NoId | StdId | StdLabel
 
 let string_of_atom_bracets opts labels p =
   "[" ^
-  (if p.svalence = Aromatic then String.lowercase p.sname else p.sname) ^
+  (if p.svalence = Aromatic then String.lowercase_ascii  p.sname else p.sname) ^
   string_of_chirality p.schirality ^
   (match p.shydrogens with
     -1 -> ""
@@ -486,7 +486,7 @@ let string_of_atom opts labels p =
   if opts = StdLabel && Labels.mem labels p.sid then string_of_atom_bracets opts labels p else
   if opts = StdId && p.sid <> 0 then string_of_atom_bracets opts labels p else
   if p.scharge = 0 && p.schirality = Unspecified  && p.shydrogens = -1 then
-    if p.svalence = Aromatic then String.lowercase p.sname else p.sname
+    if p.svalence = Aromatic then String.lowercase_ascii  p.sname else p.sname
   else string_of_atom_bracets opts labels p
 
 let rec string_of_tree opts labels = function

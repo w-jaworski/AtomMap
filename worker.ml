@@ -77,10 +77,16 @@ let _ =
       Printf.fprintf logfile "A %s %s\n%!" re.rxn_id re.reaction_smile;
 (*         print_endline (id ^ " working with " ^ akt_id); *)
 (*         fprintf logfile "woo6\n%!"; *)
-        let messages,solutions = try MatchingExec.map_atoms simple_flag re with e -> [Smiles.escape_string (Printexc.to_string e)],[] in
+      let messages,solutions = try
+        let messages,solutions = MatchingExec.map_atoms_pat re in
+        let messages,solutions = if solutions = [] then MatchingExec.map_atoms false re else messages,solutions in
+        let messages,solutions = if solutions = [] then MatchingExec.map_atoms true re else messages,solutions in
+        messages,solutions
+      with e -> [Smiles.escape_string (Printexc.to_string e)],[] in
+(*         let messages,solutions = try MatchingExec.map_atoms simple_flag re with e -> [Smiles.escape_string (Printexc.to_string e)],[] in *)
 (*         print_endline (id ^ " finished working with " ^ akt_id); *)
 (*         fprintf logfile "woo7\n%!"; *)
-        Marshal.to_channel stdout (Work_done(id, (akt_id,re,messages,solutions))) [Marshal.No_sharing];
+      Marshal.to_channel stdout (Work_done(id, (akt_id,re,messages,solutions))) [Marshal.No_sharing];
 (*         fprintf logfile "woo8\n%!"; *)
       let time = Sys.time () -. !Types.time in
 (*       Printf.fprintf logfile "B %s %s\nTIME: %f\n%!" re.rxn_id re.reaction_smile time; *)

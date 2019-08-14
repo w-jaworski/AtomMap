@@ -35,19 +35,19 @@ open Types
   let simple_flag = false in
   MatchingExec.map_atoms2_distr no_processors simple_flag Sys.argv.(2) Sys.argv.(4) reactions*)
 
-(*let _ =
+let _ =
   if Array.length Sys.argv < 3 then print_endline "missing argument\nusage: map_reactions no_processors input_filename" else
   let reactions = Import.load_reactions Sys.argv.(2) in
   let no_processors = try int_of_string Sys.argv.(1) with _ -> failwith "invalid value for no_processors" in
   let simple_flag = false in
-  MatchingExec.map_atoms2_distr3 no_processors simple_flag reactions*)
+  MatchingExec.map_atoms2_distr3 no_processors simple_flag reactions
 
-let _ =
+(*let _ =
   if Array.length Sys.argv < 3 then print_endline "missing argument\nusage: map_reactions no_processors input_filename" else
   let reactions = Import.load_rxn2 Sys.argv.(2) in
   let no_processors = try int_of_string Sys.argv.(1) with _ -> failwith "invalid value for no_processors" in
   let simple_flag = false in
-  MatchingExec.map_atoms2_distr3 no_processors simple_flag reactions
+  MatchingExec.map_atoms2_distr3 no_processors simple_flag reactions*)
 
   
 (*let _ =

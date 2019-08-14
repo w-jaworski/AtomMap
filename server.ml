@@ -30,11 +30,15 @@ let rec main_loop in_chan out_chan =
     let re = {Types.empty_record with Types.rxn_id="id"; Types.reaction_smile=query} in
     let messages,solutions = MatchingExec.map_atoms_pat re in
     let messages,solutions = if solutions = [] then MatchingExec.map_atoms false re else messages,solutions in
-    Marshal.to_channel out_chan (messages,solutions) [];
+    let messages,solutions = if solutions = [] then MatchingExec.map_atoms true re else messages,solutions in
+    let xml = Smiles.solutions_to_xml query messages solutions in
+    Printf.fprintf out_chan "%s%!" (Xml.to_string_fmt xml);
+    flush out_chan
   with e ->
     Printf.fprintf logfile "query: %s\nerror_other: %s\n%!" query (Printexc.to_string e);
-    Marshal.to_channel out_chan ([Printexc.to_string e],[]) []);
-(*   flush out_chan; *)
+    let xml = Smiles.solutions_to_xml query [Printexc.to_string e] [] in
+    Printf.fprintf out_chan "%s%!" (Xml.to_string_fmt xml);
+    flush out_chan);
   ()
 
 let port = 2727

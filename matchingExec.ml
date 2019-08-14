@@ -677,7 +677,7 @@ let execution n_workers work (*file*) =
   let id = string_of_int (Unix.getpid ()) in
   let io_list = Int.fold 1 n_workers [] (fun io_list _ ->
     print_endline (id ^ " create_worker");
-    let in_chan,out_chan = Unix.open_process "./worker" in
+    let in_chan,out_chan = Unix.open_process "./map_reaction_worker" in
     let descr = Unix.descr_of_in_channel in_chan in
     (in_chan,out_chan,descr) :: io_list) in
   let descr_list = Xlist.map io_list (fun (_,_,descr) -> descr) in

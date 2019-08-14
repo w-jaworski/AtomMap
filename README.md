@@ -22,12 +22,21 @@ Compile AtomMap:
     make
 
 The following executable files will be created:
+``map_reaction`` maps single reaction
+``map_reaction_server`` establishes a server 
 
-``map_reaction_server`` establish a server 
+``map_reaction`` takes a single command line argument which is a reaction in SMILES format
+and generate matching results are provded in XML format on standart output. For example:
+
+    ./map_reaction "ClC(C1=CC=CC=C1)=O.C1=CC=CC=C1>>O=C(C1=CC=CC=C1)C2=CC=CC=C2.[H]Cl"
 
 ``map_reaction_server`` is a socket server that awaits for queries on port 2727.
+A new process is created for each connection.
 Queries are reactions in SMILES format to be mapped.
-Matching results are provded in XML format.
+Matching results are provded in XML format. For example:
+
+    ./map_reaction_server &
+    echo "ClC(C1=CC=CC=C1)=O.C1=CC=CC=C1>>O=C(C1=CC=CC=C1)C2=CC=CC=C2.[H]Cl" | netcat localhost 2727
 
 Credits
 -------
