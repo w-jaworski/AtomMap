@@ -18,6 +18,7 @@ all:
 #	$(OCAMLOPT) -o chem.cgi $(OCAMLOPTFLAGS) collection.mli collection.ml pair.mli pair.ml labels.mli labels.ml types.ml smiles.ml import.ml chem_cgi.ml
 	$(OCAMLOPT) -o map_reaction_server $(OCAMLOPTFLAGS) $(MACZOWANIE2) server2.ml
 #	$(OCAMLOPT) -o map_reaction_worker $(OCAMLOPTFLAGS) $(MACZOWANIE2) worker.ml
+	mkdir results
 
 .SUFFIXES: .mll .mly .ml .mli .cmo .cmi .cmx
 

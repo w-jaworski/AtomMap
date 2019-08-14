@@ -21,9 +21,8 @@ Compile AtomMap:
 
     make
 
-mkdir results (dodać do makefile)
-
 The following executable files will be created:
+
 ``map_reaction_server`` establish a server 
 
 ``map_reaction_server`` is a socket server that awaits for queries on port 2727.
