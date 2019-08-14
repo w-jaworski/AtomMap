@@ -13,12 +13,11 @@ MACZOWANIE2= $(MACZOWANIE) smiles.ml patterns.ml reactionClasses.ml atomMapping.
 
 all:
 	# $(OCAMLOPT) -o cr $(OCAMLOPTFLAGS) $(MACZOWANIE2) matching_tests.ml
-# $(OCAMLOPT) -o map_reaction $(OCAMLOPTFLAGS) $(MACZOWANIE2) mapReaction.ml
+#	$(OCAMLOPT) -o map_reaction $(OCAMLOPTFLAGS) $(MACZOWANIE2) mapReaction.ml
 #	$(OCAMLOPT) -o map_reactions $(OCAMLOPTFLAGS) $(MACZOWANIE2) mapReactions.ml
-	# $(OCAMLOPT) -o chem.cgi $(OCAMLOPTFLAGS) collection.mli collection.ml pair.mli pair.ml labels.mli labels.ml types.ml smiles.ml import.ml chem_cgi.ml
-	# $(OCAMLOPT) -o chem_server $(OCAMLOPTFLAGS) $(MACZOWANIE2) server.ml
-		 $(OCAMLOPT) -o chem_server2 $(OCAMLOPTFLAGS) $(MACZOWANIE2) server2.ml
-#	$(OCAMLOPT) -o worker $(OCAMLOPTFLAGS) $(MACZOWANIE2) worker.ml
+#	$(OCAMLOPT) -o chem.cgi $(OCAMLOPTFLAGS) collection.mli collection.ml pair.mli pair.ml labels.mli labels.ml types.ml smiles.ml import.ml chem_cgi.ml
+	$(OCAMLOPT) -o map_reaction_server $(OCAMLOPTFLAGS) $(MACZOWANIE2) server2.ml
+#	$(OCAMLOPT) -o map_reaction_worker $(OCAMLOPTFLAGS) $(MACZOWANIE2) worker.ml
 
 .SUFFIXES: .mll .mly .ml .mli .cmo .cmi .cmx
 
@@ -47,4 +46,4 @@ xlib.cma:
 	cd xlib; make $@
 
 clean:
-	rm -f *~ *.cm[oix] *.o cr map_reaction map_reactions chem.cgi chem_server worker
+	rm -f *~ *.cm[oix] *.o cr map_reaction map_reactions chem.cgi map_reaction_server map_reaction_worker

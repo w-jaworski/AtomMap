@@ -25,6 +25,6 @@ open Types
 
 let _ =
   if Array.length Sys.argv < 2 then print_endline "missing argument" else
-  let messages,solutions = MatchingExec.map_atoms false {Import.empty_record with rxn_id="id"; reaction_smile=Sys.argv.(1)} in
+  let messages,solutions = MatchingExec.map_atoms false {empty_record with rxn_id="id"; reaction_smile=Sys.argv.(1)} in
   let xml = Smiles.solutions_to_xml Sys.argv.(1) messages solutions in
   print_endline (Xml.to_string_fmt xml)
