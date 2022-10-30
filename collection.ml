@@ -129,7 +129,7 @@ let map collection f = {c=Xlist.rev_map collection.c f; sort=false; uniq=false}
 let flatten collection =
   {c=List.flatten (Xlist.rev_map collection.c (fun x -> x.c)); sort=false; uniq=false}
 
-open Big_int
+open Big_int_Z
 
 let int_log n = truncate (ceil (log10 (float_of_big_int n)))
 

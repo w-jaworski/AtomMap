@@ -1,10 +1,11 @@
 OCAMLC=ocamlc
 OCAMLOPT=ocamlopt
 OCAMLDEP=ocamldep
-INCLUDES=-I +xml-light -I +gsl -I +xlib -I +zip -I +bz2 -I /usr/local/lib/ocaml/4.01.0/ANSITerminal
+#INCLUDES=-I +xml-light -I +gsl -I +xlib -I +zip -I +bz2 -I +zarith -I /usr/local/lib/ocaml/4.01.0/ANSITerminal 
+INCLUDES=-I +xml-light -I +gsl -I +xlib -I +zip -I +bz2 -I +zarith
 OCAMLFLAGS=$(INCLUDES)
 #OCAMLOPTFLAGS=$(INCLUDES) unix.cmxa xml-light.cmxa str.cmxa bigarray.cmxa nums.cmxa zip.cmxa bz2.cmxa xlib.cmxa ANSITerminal.cmxa
-OCAMLOPTFLAGS=$(INCLUDES) unix.cmxa xml-light.cmxa str.cmxa bigarray.cmxa nums.cmxa zip.cmxa bz2.cmxa xlib.cmxa #ANSITerminal.cmxa
+OCAMLOPTFLAGS=$(INCLUDES) unix.cmxa xml-light.cmxa str.cmxa bigarray.cmxa zip.cmxa bz2.cmxa zarith.cmxa xlib.cmxa
 
 MACZOWANIE= collection.mli collection.ml pair.mli pair.ml labels.mli labels.ml types.ml hash.mli hash.ml isomorphism.mli isomorphism.ml commonSubstructure.mli commonSubstructure.ml
 

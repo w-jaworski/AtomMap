@@ -77,7 +77,7 @@ let list_map (l1,l2) f =
 
 (**********************************************************************************************)
 
-open Big_int
+open Big_int_Z
 
 let rec factorial n = function
     0 -> n

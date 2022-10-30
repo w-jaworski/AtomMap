@@ -17,7 +17,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *)
 
-open Big_int
+open Big_int_Z
 
 type 'a t
 

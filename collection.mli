@@ -59,7 +59,7 @@ val exists : 'a collection -> ('a -> bool) -> bool
 val flatten_map : 'a collection -> ('a -> 'b collection) -> 'b collection
 val map : 'a collection -> ('a -> 'b) -> 'b collection
 
-open Big_int
+open Big_int_Z
 
 val int_log : big_int -> int
 val newton_symbol : int  -> int -> big_int
