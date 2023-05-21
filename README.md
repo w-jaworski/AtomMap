@@ -8,7 +8,7 @@ AtomMap maps atoms in chemical reactions.
 Installation
 ------------
 
-AtomMap requires OCaml compiler (version 4.02.3 or newer) together with ``xml-light`` library
+AtomMap requires OCaml compiler (version 4.11.1 or newer) together with ``xml-light`` library
 (package ``libxml-light-ocaml-dev`` for Ubuntu) and ``xlib`` library.
 
 In order to install ``xlib`` library clone:
